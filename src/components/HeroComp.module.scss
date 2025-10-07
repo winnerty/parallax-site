@@ -1,0 +1,118 @@
+@use '../sass/variables' as *;
+@use '../sass/mixins' as *;
+
+.scene {
+	background-color: $primary-color-alt;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	inset: 0;
+	overflow: hidden;
+	max-width: 1440px;
+	margin: auto;
+
+		.moon {
+			width: max(99px, 13vw);
+			height: max(99px, 13vw);
+			background-color: #fff;
+			border-radius: 50%;
+			position: fixed;
+			top: 16%;
+			right: 8%;
+			z-index: 0;
+		}
+
+		.moonlight {
+			width: max(190px, 12vw);
+			height: max(190px, 12vw);
+			background-color: #ffffff66;
+			border-radius: 50%;
+			position: fixed;
+			top: 16%;
+			right: 8%;
+			z-index: 0;
+			transform-style: preserve-3d;
+			filter: blur(42px);
+			box-shadow: 0 0 32px 4px #ffffff;
+		}
+
+		.bg {
+			position: fixed;
+			z-index: 0;
+			width: 110%;
+			bottom: calc(1px + 16dvh);
+			left: -3%;
+		}
+		
+		.lake {
+			position: fixed;
+			width: 110%;
+			bottom: calc(-130px + 20dvh);
+			left: 0;
+			right: 0;
+		}
+
+		.house {
+			position: fixed;
+			bottom: calc(42dvh - 80px);
+			left: -18%;
+			z-index: 0;
+			max-width: 280px;
+		}
+
+		.title {
+			position: fixed;
+			z-index: 3;
+			top: calc(40dvh - 60px);
+			right: 2%;
+			text-align: end;
+			transform-style: preserve-3d;
+			text-shadow: 1px 1px 1px #000;
+			font-size: 56px;
+			line-height: 1;
+		}
+
+		.tree {
+			position: fixed;
+			top: calc(10% - 119px);
+			z-index: 1;
+			left: calc(0px - 20%);
+			transform-style: preserve-3d;
+			filter: blur(2px);
+			transform-origin: left bottom;
+		}
+
+		.nearMountainsLeft {
+			position: fixed;
+			bottom: calc(1px - 10%);
+			left: calc(1px - 5%);
+			z-index: 1;
+			transform-style: preserve-3d;
+			filter: blur(2px);
+			width: 30%;
+		}
+
+		.nearMountainsRight {
+			position: fixed;
+			bottom: calc(1px - 10%);
+			right: calc(1px - 5%);
+			z-index: 1;
+			transform-style: preserve-3d;
+			filter: blur(2px);
+			width: 100px;
+		}
+
+		.upCloseTrees {
+			position: fixed;
+			bottom: calc(1px - 14%);
+			z-index: 1;
+			left: calc(1px - 5%);
+			transform-style: preserve-3d;
+			filter: blur(2px);
+			width: 110%;
+			min-width: 640px;
+		}
+}
