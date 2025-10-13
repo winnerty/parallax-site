@@ -1,4 +1,4 @@
-import styles from './HeroComp.module.scss'
+import styles from './AboutComp.module.scss'
 import woman from "../assets/woman.png"
 
 const AboutComp = () => {
