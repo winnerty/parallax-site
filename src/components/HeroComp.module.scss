@@ -13,6 +13,7 @@
 	overflow: hidden;
 	max-width: 1440px;
 	margin: auto;
+	pointer-events: none;
 
 		.moon {
 			width: max(99px, 13vw);

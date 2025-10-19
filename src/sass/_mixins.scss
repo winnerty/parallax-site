@@ -1,25 +1,116 @@
 @use "./variables" as *;
 
 @mixin mobile-small {
-	@media (min-width: $breakpoint-small) {
-		@content;
-	}
+    @media (min-width: $breakpoint-small) {
+        @content;
+    }
 }
 
 @mixin mobile-medium {
-	@media (min-width: $breakpoint-medium) {
-		@content;
-	}
+    @media (min-width: $breakpoint-medium) {
+        @content;
+    }
 }
 
 @mixin mobile-large {
-	@media (min-width: $breakpoint-large) {
-		@content;
-	}
+    @media (min-width: $breakpoint-large) {
+        @content;
+    }
 }
 
 @mixin mobile-large-plus {
-	@media (min-width: $breakpoint-large-plus) {
-		@content;
-	}
+    @media (min-width: $breakpoint-large-plus) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @include mobile-medium {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @include mobile-large {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @include mobile-large-plus {
+        @content;
+    }
+}
+
+@mixin up($min) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin down($max) {
+    @media (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin between($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin hover-capable {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin reduce-motion {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
+@mixin dark {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+@mixin retina {
+    @media (min-resolution: 2dppx) {
+        @content;
+    }
+}
+
+@mixin container-padding-responsive($base: 2rem, $small: 1.25rem) {
+    padding: $base;
+
+    @include mobile-small {
+        padding: $small;
+    }
+}
+
+@mixin fluid-type($min-size, $max-size, $min-vw: 320px, $max-vw: 1440px) {
+    font-size: clamp(#{$min-size}, calc(#{$min-size} + (#{strip-unit($max-size - $min-size)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})), #{$max-size});
+}
+
+@function strip-unit($value) {
+    @if type-of($value) == 'number' and not unitless($value) {
+        @return $value / ($value * 0 + 1);
+    }
+    @return $value;
 }
